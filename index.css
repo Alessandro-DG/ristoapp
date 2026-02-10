@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Smythe', sans-serif;
+}
+body {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+}
+
+.container {
+    padding: 46px;
+}
+
+header {
+    background-image: url('/images/ferks-guare-KEZdWfYD-ow-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 167px;
+    color: white;
+}
+
+main {
+    background-color: white;
+}
+
+.card {
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.card .ingredients {
+    color: #8B8B8B;
+}

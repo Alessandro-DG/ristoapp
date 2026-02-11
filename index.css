@@ -28,8 +28,29 @@ main {
 
 .card {
     border-bottom: 1px solid #d2d2d2;
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    padding: 32px;
 }
 
-.card .ingredients {
+.card-img {
+    width: 70px;
+}
+
+.card-ingredients {
     color: #8B8B8B;
+}
+
+.card-btn {
+    border-radius: 50%;
+    border: 1px solid #dedede;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    color: #3c3c3c;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    background-color: white;
+    margin-left: auto;
 }

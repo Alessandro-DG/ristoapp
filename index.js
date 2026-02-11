@@ -22,18 +22,21 @@ document.querySelector('.menu').innerHTML = menuHtml;
 renderOrderItems();
 
 document.addEventListener('click', (event) => {
-    if(event.target.classList.contains('menu-card-btn')) {
+    // add order item
+    if(event.target.classList.contains('menu-card-btn')){
         const itemTitle = event.target.dataset.item;
 
         if( ! orderHasItem(itemTitle) ){
             orderItems.push(menu.find(item => item.title === itemTitle));
             localStorage.setItem('orderItems', JSON.stringify(orderItems));
+            document.querySelector('.thank-you').classList.add('hidden');
         }
 
         renderOrderItems();
     }
 
-    if(event.target.classList.contains('order-item-remove-btn')) {
+    // remove order item
+    if(event.target.classList.contains('order-item-remove-btn')){
         const itemTitle = event.target.dataset.item
         orderItems = orderItems.filter(item => item.title !== itemTitle);
         localStorage.setItem('orderItems', JSON.stringify(orderItems));
@@ -41,6 +44,19 @@ document.addEventListener('click', (event) => {
         renderOrderItems();
     }
 
+    // complete order btn
+    if(event.target.classList.contains('order-complete-btn')){
+        document.querySelector('.payment-modal').classList.add('modal-visible');
+    }
+})
+
+document.addEventListener('submit', (event) => {
+    event.preventDefault();
+    document.querySelector('.payment-modal').classList.remove('modal-visible');
+    document.querySelector('.payment-modal-form').reset();
+    document.querySelector('.order').classList.add('hidden');
+    document.querySelector('.thank-you').classList.remove('hidden');
+    localStorage.removeItem('orderItems');
 })
 
 function orderHasItem(itemTitle) {
